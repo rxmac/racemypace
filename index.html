@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Running Pace Calculator | racemypace</title>
+  <meta name="description" content="A quick tool to calculate your target running pace in your next race">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!--<link rel="apple-touch-icon" href="icon.png">-->
+
+  <link href="styles.min.css?v=1.0" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:500|IBM+Plex+Sans:400,400i,700,700i" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+  <script src="js/min/scripts.min.js?v=1.0"></script>
+
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <div class="screen">
+
+    <div class="container-small">
+
+      <header>
+        <div class="logo">race<span>my</span>pace</div>
+        <h1>Running pace calculator</h1>
+      </header>
+
+      <form>
+
+        <div class="question">
+          <p class="label">What race are you running?</p>
+          <select name="text" id="distance">
+            <option value="5">5 km</option>
+            <option value="10">10 km</option>
+            <option value="16.0934">10 miles</option>
+            <option value="21.0975">Half-marathon</option>
+            <option value="42.195">Marathon</option>
+          </select>
+        </div>
+
+        <div class="question">
+          <p class="label">What time are you aiming for?</p>
+          <div class="time">
+            <select id="finishHours" name="finishHours"></select>
+            <span class="colon">:</span>
+            <br />
+            <label for="finishHours">Hours</label>
+          </div>
+          <div class="time">
+            <select id="finishMins" name="finishMins"></select>
+            <br />
+            <label for="finishMins">Minutes</label>
+          </div>
+        </div>
+
+        <div class="units">
+          <input type="radio" id="miles" name="units" value="0.621371" checked>
+          <label for="miles">Miles (m)</label>
+          <input type="radio" id="kilometers" name="units" value="1">
+          <label for="kilometers">Kilometers (km)</label>
+        </div>
+
+        <div id="results">
+
+          <div class="resultBox">
+            <p class="label">Average pace</p>
+            <div id="resultPace" class="result result-number"></div>
+            <div id="timePerUnit" class="result result-string"></div>
+          </div>
+
+          <div class="resultBox">
+            <p class="label">Average speed <span>(for treadmill training)</span></p>
+            <div id="resultSpeed" class="result result-number"></div>
+            <div id="unitPerHour" class="result result-string"></div>
+          </div>
+
+        </div>
+
+        <button type="submit" id="submit">Calculate pace</button>
+
+
+        <!-- EXAMPLE
+        <div class="resultBox">
+          <p class="label">Example</p>
+          <div id="resultPace" class="result-number">09:09</div>
+          <div id="timePerUnit" class="result-string">minutes per mile</div>
+        </div> -->
+
+        <p class="label"><a href="#info">more info ></a></p>
+      </form>
+
+    </div><!-- /.container-small -->
+
+  </div><!-- /.screen -->
+
+  <div class="info" id="info">
+    <div class="container-medium">
+      <h2>What is Race My Pace?</h2>
+
+      <p>Race My Pace is a running pace calculator. Use it to find the average pace you need to run in order to hit your target time in your next race. You can find out how quickly you need to run each mile or kilometer and you can check what speed you need to set your treadmill at for training.</p>
+
+      <p>I built Race My Pace because all of the other running pace calculators were too complex, fiddly, hard to use on a mobile device or just plain ugly. This calculator is intended to be simple and easy to use.</p>
+
+      <h2>Why is pacing important?</h2>
+
+      <p>The key to running a fast time in a long distance race is to travel at a consistent pace. Running too fast at the start of a race is a common reason why many runners don’t meet their target times. Setting out at steady pace and patiently hitting your target splits is often the best strategy for success.</p>
+
+      <h2>How are my target pace times calculated?</h2>
+
+      <p>All times are calculated to one second less than you target time. So if your target is the “four hour marathon”, the average pace is calculated to run 3 hours, 59 minutes and 59 seconds. Target pace is rounded down to the nearest second for clarity. Target speed is rounded up to one decimal place, as this is how most treadmills display speed. This means that you’ll always be training very slightly higher than target pace.</p>
+
+      <h2>What pace do I need to run for a sub-4-hour marathon?</h2>
+      <p>9 minutes and 9 seconds per mile. This is an average of 6.6 mph.</p>
+      <p>Or, 5 minutes and 41 seconds per kilometer. This is an average of 10.6 kph.</p>
+
+      <h2>What pace do I need to run for a sub-5-hour marathon?</h2>
+      <p>11 minutes and 26 seconds per mile. This is an average of 5.3 mph.</p>
+      <p>Or, 7 minutes and 6 seconds per kilometer. This is an average of 8.5 kph.</p>
+
+      <h2>What pace do I need to run for a sub-4:30 marathon?</h2>
+      <p>10 minutes and 17 seconds per mile. This is an average of 5.9 mph.</p>
+      <p>Or, 6 minutes and 23 seconds per kilometer. This is an average of 9.4 kph.</p>
+
+      <h2>What pace do I need to run for a sub-3:30 marathon?</h2>
+      <p>8 minutes per mile. This is an average of 7.5 mph.</p>
+      <p>Or, 4 minutes and 58 seconds per kilometer. This is an average of 12.1 kph.</p>
+
+      <h2>What speed would be required to run a marathon in under 2 hours (ie. 1 hour, 59 minutes and 59 seconds)?</h2>
+      <p>An average of 4 minutes and 34 seconds per mile. This is an average speed of a fraction over 13.1 mph.</p>
+      <p>In kilometers, this is an average of 2 minutes and 50 seconds per kilometer. This is an average speed of around 21.2 kph.</p>
+
+      <div class="colophon">
+        <p>&copy; 2018. Email <a href="mailto:hi@racemypace.com" target="_blank">hi@racemypace.com</a> for advertising and all other enquiries.</p>
+      </div>
+    </div><!-- /.container-medium -->
+
+  </div><!-- /.info -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119594214-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-119594214-1');
+  </script>
+
+</body>
+
+</html>

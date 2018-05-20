@@ -1,0 +1,198 @@
+$dark: #1F2533;
+$bright: #FFF266;
+$accent: #F86F6F;
+
+/*
+Sans bold italic – questions, button, logo
+Sans reg, italic, bold – text
+Mono Medium – digits
+
+*/
+
+@mixin font-heading() {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: bold;
+  font-style: italic;
+}
+
+@mixin font-mono() {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+}
+
+html {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 20px;
+  background: $bright;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@media (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: unset;
+    -moz-osx-font-smoothing: unset;
+  }
+}
+body {
+  margin: 0;
+  color: $dark;
+}
+::-moz-selection { background: $accent; }
+::selection { background: $accent; }
+
+header {
+  text-align: center;
+  padding: 0.5em 0;
+  border-top: 1px solid $dark;
+  border-bottom: 1px solid $dark;
+  margin-bottom: 2em;
+}
+.logo {
+  @include font-heading();
+  font-size: 42px;
+  line-height: 1;
+  letter-spacing: -1px;
+  span { color: $accent; }
+}
+h1 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+h2 {
+  @include font-heading();
+  font-size: 1.25em;
+  margin: 1.5em 0 0.5em 0;
+  color: white;
+}
+.label {
+  @include font-heading();
+  font-size: 0.8em;
+  margin: 0 0 0.5rem 0;
+  a {
+    text-decoration: none;
+    color: $accent;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  #distance { width: 100%; }
+  select, button { font-size: 1em; }
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0.5em 0.75em;
+    border: 1px solid $dark;
+    background: white;
+  }
+  button {
+    @include font-heading();
+    width: 100%;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background-color: $dark;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 1.25em 0;
+    margin: 2em 0;
+    outline: none;
+    transition: background-color 300ms;
+    &:hover {
+      background-color: lighten($dark, 20%);
+      cursor: pointer;
+    }
+    &:active {
+      position: relative;
+      top: 1px;
+    }
+  }
+}
+.time {
+  display: inline-block;
+  .colon {
+    display: inline-block;
+    padding: 0 4px;
+  }
+  label { font-size: 0.8em; }
+}
+.units { font-size: 0.8em; }
+
+.question { margin-bottom: 1em; }
+
+.screen {
+  min-height: 100vh;
+  background: $bright;
+  background: linear-gradient(0deg, $accent 0%, $bright 10%);
+}
+.info {
+  background: $dark;
+  padding: 0 0 2em 0;
+  color: #ddd;
+  outline: none;
+  p {
+    line-height: 1.5;
+    margin: 0 0 1em 0;
+  }
+  a {
+    color: $accent;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  @media (max-width: 36rem) {
+    font-size: 16px;
+  }
+}
+.colophon {
+  font-size: 14px;
+  margin-top: 4em;
+  padding-top: 2em;
+  border-top: 1px solid rgba(255,255,255,0.25);
+}
+
+.container-small {
+  max-width: 18rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+.container-medium {
+  @extend .container-small;
+  max-width: 36rem;
+}
+
+
+.resultBox {
+  background: white;
+  border-radius: 4px;
+  padding: 1em;
+  margin: 1em 0;
+  &:last-child { margin-bottom: 0; }
+  color: lighten($dark,40%);
+  .label {
+    margin-bottom: 0;
+    span {
+      font-size: 0.7rem;
+      font-weight: 400;
+    }
+  }
+  div { display: inline-block; }
+  .result-number {
+    @include font-mono();
+    color: $dark;
+    font-size: 2em;
+  }
+  .result-string {
+    font-size: 0.7em;
+    padding-left: 0.25em;
+  }
+}

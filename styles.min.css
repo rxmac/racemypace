@@ -1,0 +1,234 @@
+@charset "UTF-8";
+
+html {
+  font-family: 'IBM Plex Sans',sans-serif;
+  font-size: 20px;
+  background: #fff266;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-resolution:192dpi) {
+  body {
+    -webkit-font-smoothing: unset;
+    -moz-osx-font-smoothing: unset;
+  }
+}
+
+body {
+  margin: 0;
+  color: #1f2533;
+}
+
+::-moz-selection {
+  background: #f86f6f;
+}
+
+::selection {
+  background: #f86f6f;
+}
+
+header {
+  text-align: center;
+  padding: .5em 0;
+  border-top: 1px solid #1f2533;
+  border-bottom: 1px solid #1f2533;
+  margin-bottom: 2em;
+}
+
+.logo {
+  font-weight: 700;
+  font-style: italic;
+  font-size: 42px;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: #f86f6f;
+}
+
+.label,
+.logo,
+form button,
+h1,
+h2 {
+  font-family: 'IBM Plex Sans',sans-serif;
+}
+
+h1 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 400;
+}
+
+.label,
+form button,
+h2 {
+  font-weight: 700;
+  font-style: italic;
+}
+
+h2 {
+  margin: 1.5em 0 .5em;
+  color: #fff;
+  font-size: 1.25em;
+}
+
+.label,
+form button {
+  font-size: .8em;
+}
+
+.label {
+  margin: 0 0 .5rem;
+}
+
+.info a:hover,
+.label a:hover {
+  text-decoration: underline;
+}
+
+form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+form #distance {
+  width: 100%;
+}
+
+form select {
+  font-size: 1em;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: .5em .75em;
+  border: 1px solid #1f2533;
+  background: #fff;
+}
+
+form button {
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background-color: #1f2533;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 1.25em 0;
+  margin: 2em 0;
+  outline: 0;
+  transition: background-color 300ms;
+}
+
+form button:hover {
+  background-color: #465372;
+  cursor: pointer;
+}
+
+form button:active {
+  position: relative;
+  top: 1px;
+}
+
+.resultBox div,
+.time,
+.time .colon {
+  display: inline-block;
+}
+
+.time .colon {
+  padding: 0 4px;
+}
+
+.time label,
+.units {
+  font-size: .8em;
+}
+
+.question {
+  margin-bottom: 1em;
+}
+
+.screen {
+  min-height: 100vh;
+  background: #fff266;
+  background: linear-gradient(0deg,#f86f6f 0%,#fff266 10%);
+}
+
+.info {
+  background: #1f2533;
+  padding: 0 0 2em;
+  color: #ddd;
+  outline: 0;
+}
+
+.info p {
+  line-height: 1.5;
+  margin: 0 0 1em;
+}
+
+.info a,
+.label a {
+  color: #f86f6f;
+  text-decoration: none;
+}
+
+@media (max-width:36rem) {
+  .info {
+    font-size: 16px;
+  }
+}
+
+.colophon {
+  font-size: 14px;
+  margin-top: 4em;
+  padding-top: 2em;
+  border-top: 1px solid rgba(255,255,255,.25);
+}
+
+.container-medium,
+.container-small {
+  max-width: 18rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.container-medium {
+  max-width: 36rem;
+}
+
+.resultBox {
+  background: #fff;
+  border-radius: 4px;
+  padding: 1em;
+  margin: 1em 0;
+  color: #7484aa;
+}
+
+.resultBox:last-child {
+  margin-bottom: 0;
+}
+
+.resultBox .label {
+  margin-bottom: 0;
+}
+
+.resultBox .label span {
+  font-size: .7rem;
+  font-weight: 400;
+}
+
+.resultBox .result-number {
+  font-family: 'IBM Plex Mono',monospace;
+  font-weight: 500;
+  color: #1f2533;
+  font-size: 2em;
+}
+
+.resultBox .result-string {
+  font-size: .7em;
+  padding-left: .25em;
+}
