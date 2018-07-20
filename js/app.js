@@ -17,7 +17,7 @@ $(document).ready(function(){
     );
   }
   var j;
-  for (j = 0; j < 60; (j = j+5) ) {
+  for (j = 0; j < 60; (j = j+1) ) {
     var jj = j < 10 ? '0' + j : j;
     $('#finishMins').append(
       $('<option>', { value:j, text:jj })
